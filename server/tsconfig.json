@@ -12,7 +12,7 @@
     "resolveJsonModule": true // If you're using JSON files
   },
   "include": [
-    "src/**/*" // All TypeScript files in the src directory to compile Ts overit 
+    "src/**/*" // All TypeScript files in the src directory to compile Ts over it 
   ],
   "exclude": [
     "node_modules" //Typescript Don't have to compile files in node_modules. it's no use, TS is here only for devDep
