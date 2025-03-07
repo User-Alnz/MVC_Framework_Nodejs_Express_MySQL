@@ -2,7 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import router from "./router";
-import errorHandler from "./errors/errorHandler";
+import { errorHandler } from "./errors/errors";
 
 
 //https://medium.com/@xiaominghu19922/proper-error-handling-in-express-server-with-typescript-8cd4ffb67188 Good practice setting helper Doc

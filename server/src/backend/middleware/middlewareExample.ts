@@ -1,16 +1,17 @@
 import type { RequestHandler } from "express";
+import BadRequestError from "../errors/BadRequestErrors";
 
 const AsyncRead : RequestHandler = async (req, res, next) => {
 
     try {
 
         const {id} = req.body;
-        if(!id) {
-            return next(new Error("Id is required!"));
-            // return res.status(400).send({ message: "Id is required!" });
-        }
 
-       //Add await other function() or async middleware
+        if(!id)
+        return next(new BadRequestError({code: 400, message: "Name is required!", logging: true}));
+
+       //Add await other function() or async middleware here !
+
        res.status(202).json({ 
             success : true, 
             message : "Request done"
@@ -24,12 +25,12 @@ const AsyncRead : RequestHandler = async (req, res, next) => {
 };
 
 //Sync for faster answer and if no other midleware, controllers or other function needed
-const SyncRead : RequestHandler = (req, res) => {
+const SyncRead : RequestHandler = (req, res, next) => {
 
     const {name} = req.query;
 
     if(!name)
-        throw new Error("Name is required!"); //Only for Sync Error
+    return next(new Error("Name is required!")); //Only for Sync Error
 
     const newUser = { id:  1, name,};
 
