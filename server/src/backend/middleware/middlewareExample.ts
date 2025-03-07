@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import BadRequestError from "../errors/BadRequestErrors";
+import BadRequestError from "../errors/badRequestErrors";
 
 const AsyncRead : RequestHandler = async (req, res, next) => {
 
