@@ -1,5 +1,5 @@
 import "dotenv/config";
-import server from "./serverConfig";
+import server from "./serverConfig.js";
 
 const initServer = async () => {
     try{

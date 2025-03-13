@@ -1,8 +1,10 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import router from "./router";
-import { errorHandler } from "./errors/errors";
+import router from "./router.js";
+import { fileURLToPath } from "url";
+import path from "path";
+import { errorHandler } from "./errors/errors.js";
 
 
 //https://medium.com/@xiaominghu19922/proper-error-handling-in-express-server-with-typescript-8cd4ffb67188 Good practice setting helper Doc
@@ -26,6 +28,15 @@ const server = express();
     //server.use(express.urlencoded()); //url data encoded like in body POST http method
     //server.use(express.text()); //text data
     //server.use(express.raw()); //binary data
+
+/* Serve file or app from client */
+
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+
+    const pathApp1 = path.join(__dirname, "../../../client/app1"); //Define which dist/app or file to serve from client 
+    console.info("Serving file from pathApp1 :", pathApp1);
+    server.use("/app1", express.static( pathApp1, { index: "index.html" }));
 
 /* Rooting */
 

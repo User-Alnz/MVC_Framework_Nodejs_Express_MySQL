@@ -1,5 +1,5 @@
 import { ErrorRequestHandler } from "express";
-import CustomError from "./customErrors";
+import CustomError from "./customErrors.js";
 
 export const errorHandler :ErrorRequestHandler = (err, req, res, next) :void => {
     // Handled errors

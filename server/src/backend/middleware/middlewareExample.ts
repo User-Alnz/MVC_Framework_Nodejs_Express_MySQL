@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import BadRequestError from "../errors/badRequestErrors";
+import BadRequestError from "../errors/badRequestErrors.js";
 
 const AsyncRead : RequestHandler = async (req, res, next) => {
 
@@ -7,6 +7,7 @@ const AsyncRead : RequestHandler = async (req, res, next) => {
 
         const {id} = req.body;
 
+        // 
         if(!id)
         return next(new BadRequestError({code: 400, message: "Name is required!", logging: true}));
 
@@ -30,7 +31,7 @@ const SyncRead : RequestHandler = (req, res, next) => {
     const {name} = req.query;
 
     if(!name)
-    return next(new Error("Name is required!")); //Only for Sync Error
+    return next(new BadRequestError({code: 400, message: "Name is required!", logging: true}));
 
     const newUser = { id:  1, name,};
 
