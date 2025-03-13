@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch --clear-screen=false ./src/backend/server.ts",
     "prod": "node dist/backend/server.js",
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "postbuild": "cp package.json package-lock.json .env ../serverBuilt/ && echo '✅ Build complete! /serverBuilt created ! and package.json, package-lock.json, and .env copied to serverBuilt/'",
+    "InstallDep": "npm install --omit=dev"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
