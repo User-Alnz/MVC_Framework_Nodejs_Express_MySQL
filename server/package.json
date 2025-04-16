@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch --clear-screen=false ./src/backend/server.ts",
+    "test-db" : "tsx ./src/backend/Database/testDatabaseConnection.ts",
     "prod": "node dist/backend/server.js",
     "build": "tsc -p tsconfig.json",
     "postbuild": "cp package.json package-lock.json .env ../serverBuilt/ && echo '✅ Build complete! /serverBuilt created ! and package.json, package-lock.json, and .env copied to serverBuilt/'",
@@ -14,13 +15,15 @@
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "@types/node": "^22.14.1",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "mysql2": "^3.14.0"
   },
   "keywords": [],
   "author": "",
