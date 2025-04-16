@@ -21,7 +21,6 @@ const server = express();
         //allowedHeaders: ['Content-Type', 'Authorization'] // Allow only certain request headers
     }));
 
-
 /* Setting middleware accepted format by server */
 
     server.use(express.json()); //json format data
@@ -34,7 +33,7 @@ const server = express();
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
 
-    const pathApp1 = path.join(__dirname, "../../../client/app1"); //Define which dist/app or file to serve from client 
+    const pathApp1 = path.join(__dirname, "../../../client/app1"); //Define which dist/app or file to serve from client
     console.info("Serving file from pathApp1 :", pathApp1);
     server.use("/app1", express.static( pathApp1, { index: "index.html" }));
 

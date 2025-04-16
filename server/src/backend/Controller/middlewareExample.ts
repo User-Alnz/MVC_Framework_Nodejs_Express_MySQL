@@ -7,7 +7,6 @@ const AsyncRead : RequestHandler = async (req, res, next) => {
 
         const {id} = req.body;
 
-        // 
         if(!id)
         return next(new BadRequestError({code: 400, message: "Name is required!", logging: true}));
 
