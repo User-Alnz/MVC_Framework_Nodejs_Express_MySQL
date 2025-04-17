@@ -10,7 +10,8 @@ const AsyncRead : RequestHandler = async (req, res, next) => {
         if(!id)
         return next(new BadRequestError({code: 400, message: "Name is required!", logging: true}));
 
-       //Add await other function() or async middleware here !
+       //Add await other function() or async middleware here ! Or like calling Model function for instance. 
+       // Ex => await Model_User.GetListofUser(); | 
 
        res.status(202).json({ 
             success : true, 
