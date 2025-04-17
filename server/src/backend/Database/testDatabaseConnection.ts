@@ -10,7 +10,7 @@ OpenPoolConnectionToSQL
     console.info(`Using database ${process.env.DB_NAME} \n Here is a sample of your tables :\n`);
 
         const displayDatabases = await connection.query(`SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = ? LIMIT 5`,
-        [process.env.DB_NAME] );// just exemple yon can display something else
+        [process.env.DB_NAME]);// just exemple yon can display something else
         console.info(displayDatabases);
 
     //connection.release(); only on production mode rather than OpenPoolConnectionToSQL.end(); that close whole pool connection

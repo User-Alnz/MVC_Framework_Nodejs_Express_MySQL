@@ -35,7 +35,7 @@ const server = express();
 
     const pathApp1 = path.join(__dirname, "../../../client/app1"); //Define which dist/app or file to serve from client
     console.info("Serving file from pathApp1 :", pathApp1);
-    server.use("/app1", express.static( pathApp1, { index: "index.html" }));
+    server.use("/app1", express.static(pathApp1, { index: "index.html" }));
 
 /* Rooting */
 
@@ -44,6 +44,5 @@ const server = express();
 /* Error handling */
 
     server.use(errorHandler);
-
 
 export default server;
