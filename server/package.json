@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "dev": "tsx watch --clear-screen=false ./src/backend/server.ts",
     "test-db": "tsx ./src/backend/Database/testDatabaseConnection.ts",
+    "dev": "tsx watch --clear-screen=false ./src/backend/server.ts",
     "prod": "node dist/backend/server.js",
     "build": "tsc -p tsconfig.json",
     "postbuild": "cp package.json package-lock.json .env ../serverBuilt/ && echo '✅ Build complete! /serverBuilt created ! and package.json, package-lock.json, and .env copied to serverBuilt/'",

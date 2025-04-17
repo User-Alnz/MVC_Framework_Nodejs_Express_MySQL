@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import  middlewareExample from "../../Controller/middlewareExample"
 
-describe('Authorization middleware', () => {
+describe('This is testing Authorization Controller/middleware', () => {
     let mockRequest: Partial<Request>;
     let mockResponse: Partial<Response>;
     let nextFunction: NextFunction = jest.fn();
