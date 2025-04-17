@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2020",   // Can be updated beased on New Release and nedd
+    "target": "ES2020",   // Can be updated beased on New Release and need
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "strict": true,
@@ -14,8 +14,8 @@
   },
   "include": [
     "src/**/*" // All TypeScript files in the src directory to compile Ts over it 
-  ],
+    ,  "__tests__/**/*"   ], // Include test directory only dev env
   "exclude": [
-    "node_modules" //Typescript Don't have to compile files in node_modules. it's no use, TS is here only for devDep
+    "node_modules", "**/*.test.ts", "**/__tests__" //Exclude all test and test file when compiling to .js 
   ]
 }
