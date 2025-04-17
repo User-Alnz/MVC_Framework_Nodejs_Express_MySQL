@@ -37,4 +37,16 @@ const SyncRead : RequestHandler = (req, res, next) => {
     res.status(201).send({ data: newUser });
 }
 
-export default {AsyncRead, SyncRead};
+// Exemple of Authorization middleware. Tested in /__test__/UnitTest/controllerUnitTestExemple.test.ts | In CLI Run => npm run test 
+const Authorization : RequestHandler = (req, res, next) => {
+
+    if (!req.headers || !req.headers['authorization']) {
+        req.statusCode = 403;
+        res.json({ error: "Missing JWT token from the 'Authorization' header" });
+    } else {
+        return next(new BadRequestError({ code : 401, message : "invalid Token", logging: true}));
+    }
+}
+
+
+export default {AsyncRead, SyncRead, Authorization};

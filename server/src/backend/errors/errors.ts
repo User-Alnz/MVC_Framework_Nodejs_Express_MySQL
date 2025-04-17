@@ -1,7 +1,7 @@
 import { ErrorRequestHandler } from "express";
 import CustomError from "./customErrors.js";
 
-export const errorHandler :ErrorRequestHandler = (err, req, res, next) :void => {
+export const errorHandler : ErrorRequestHandler = (err, req, res, next) :void => {
     // Handled errors
     if(err instanceof CustomError) {
       const { statusCode, errors, logging } = err;
